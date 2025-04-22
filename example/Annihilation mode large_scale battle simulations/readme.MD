@@ -1,0 +1,6 @@
+这是一个总力战的模拟推演
+战斗规模为营级单位以上
+脚本会自动输出结果生成报告表格
+FA_unit_lost_report.xlsx
+FB_unit_lost_report.xlsx
+战斗流程会在MATLAB的控制台显示
