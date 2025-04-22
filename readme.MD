@@ -1,16 +1,23 @@
 一种基于MATLAB R2022b的安科战斗脚本全自动实现
 
 适用于两个阵营的大规模战斗推演和小队作战推演
+
 脚本可自定义阵营名称，最大可执行回合，单位与加成信息
+
 战斗流程会在MATLAB的控制台中显示，可以通过选中复制后手动存储
+
 战斗完成后脚本会自动输出双方的损失报告为表格文件: FA_unit_lost_report.xlsx，FB_unit_lost_report.xlsx
 
 脚本文件说明
 
 battle.m 歼灭战模式，支援单位无法被攻击
+
 battle1.m 歼灭战模式，支援单位可以被支援单位选中攻击
+
 battle1_allunitycanattack.m 歼灭战模式，支援单位可以被选中攻击
+
 battle2.m 据点争夺模式，阵营A默认为战役防守方，阵营B默认为战役进攻方，支援单位可以被选中攻击，目前未考虑据点重新翻转为中立的情况
+
 
 脚本文件运行的所需资料文件说明
 
@@ -80,19 +87,27 @@ FA_unit_lost_report.xlsx (Faction A losses)
 
 FB_unit_lost_report.xlsx (Faction B losses).
 
+
 Script File Descriptions
+
 
 battle.m: Annihilation mode, support units cannot be attacked.
 
+
 battle1.m: Annihilation mode, support units can be targeted by other support units.
+
 
 battle1_allunitycanattack.m: Annihilation mode, support units can be fully targeted for attacks.
 
+
 battle2.m: Stronghold conquest mode. Faction A is the default defender, Faction B is the default attacker. Support units can be targeted. Note: The script currently does not account for strongholds reverting to neutral status.
+
+
 
 Required Data Files for Script Execution
 
 Information.xlsx
+
 Contains victory conditions and scenario settings for both factions.
 Format:
 
@@ -100,7 +115,9 @@ Faction | Victory Condition | Maximum Rounds
 
 Recommended maximum round limit: 10 (do not exceed 20).
 
+
 bfset.xlsx
+
 Stronghold settings for the battlefield (used in stronghold conquest mode).
 Control ownership is defined as:
 
@@ -109,43 +126,57 @@ Format:
 
 Stronghold Name | Control Ownership
 
+
 Ap.xlsx
+
 Faction A bonus file—provides point bonuses during combat round calculations.
 Note: Avoid negative total bonuses (untested).
 Format:
 
 Bonus Name | Bonus Points
 
+
 Aunit.xlsx
+
 Faction A frontline unit data—direct combat units deployed on the battlefield (frontline).
 Format:
 
 Unit Name | Quantity | Combat Points (HP) | Total Points
 
+
 AunitS.xlsx
+
 Faction A support unit data—backline units (e.g., artillery) that can directly attack.
 Format:
 
 Unit Name | Quantity | Combat Points (HP) | Total Points
 
+
 Bp.xlsx
+
 Faction B bonus file—provides point bonuses during combat round calculations.
 Note: Avoid negative total bonuses (untested).
 Format:
 
 Bonus Name | Bonus Points
 
+
 Bunit.xlsx
+
 Faction B frontline unit data—direct combat units deployed on the battlefield (frontline).
 Format:
 
 Unit Name | Quantity | Combat Points (HP) | Total Points
 
+
 BunitS.xlsx
+
 Faction B support unit data—backline units (e.g., artillery) that can directly attack.
 Format:
 
 Unit Name | Quantity | Combat Points (HP) | Total Points
 
+
 Code Implementation Notes
+
 The current build prioritizes functional implementation and has not undergone modularization or encapsulation. The scripts must be executed in MATLAB. It is strongly recommended to use MATLAB R2022b to avoid potential encoding issues.
