@@ -433,7 +433,7 @@ for turn = 1:max_turns
             FB_damage = randi([0, BunitS_health_list(i,7)]);  % 这是随机生成的伤害
             
             fprintf('单位杀伤判定\n');
-            fprintf(['Rd',num2str(AunitS_health_list(i,7)),'=', num2str(FB_damage),'\n']);
+            fprintf(['Rd',num2str(BunitS_health_list(i,7)),'=', num2str(FB_damage),'\n']);
 
             % 杀伤效果评估(命中判定)
             hit = randi([0, 100]);
@@ -465,7 +465,7 @@ for turn = 1:max_turns
                 if strcmp(target_type, '普通')
                     FB_turn_damge = FB_turn_damge + FB_damage;
                     Aunit_health_list(target_A, 3) = Aunit_health_list(target_A, 3) - FB_damage;
-                    fprintf([Faction_name_misson{2,1},'的', Aunit_name{target_A,1}, '受到了', num2str(FB_damage), '点伤害\n\n']);
+                    fprintf([Faction_name_misson{1,1},'的', Aunit_name{target_A,1}, '受到了', num2str(FB_damage), '点伤害\n\n']);
                     % 普通单位摧毁判定
                     if Aunit_health_list(target_A, 3) <= 0
                         fprintf([Faction_name_misson{2,1},'的', Aunit_name{target_A,1}, '被消灭！\n']);
@@ -474,10 +474,10 @@ for turn = 1:max_turns
                     end
                 else
                     AunitS_health_list(target_A_support, 3) = AunitS_health_list(target_A_support, 3) - FB_damage;
-                    fprintf([Faction_name_misson{2,1},'的支援单位', AunitS_name{target_A_support,1}, '受到了', num2str(FB_damage), '点伤害\n\n']);
+                    fprintf([Faction_name_misson{1,1},'的支援单位', AunitS_name{target_A_support,1}, '受到了', num2str(FB_damage), '点伤害\n\n']);
                     % 支援单位摧毁判定
                     if AunitS_health_list(target_A_support, 3) <= 0
-                        fprintf([Faction_name_misson{2,1},'的支援单位', AunitS_name{target_A_support,1}, '被消灭！\n']);
+                        fprintf([Faction_name_misson{1,1},'的支援单位', AunitS_name{target_A_support,1}, '被消灭！\n']);
                         AunitS_health_list(target_A_support, 6) = AunitS_health_list(target_A_support, 4);
                         AunitS_health_list(target_A_support, 4) = 0;
                     end

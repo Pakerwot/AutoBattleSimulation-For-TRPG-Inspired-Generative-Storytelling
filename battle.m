@@ -296,7 +296,7 @@ for turn = 1:max_turns
             FB_damage = randi([0, BunitS_health_list(i,7)]);  % 这是随机生成的伤害
             
             fprintf('单位杀伤判定\n');
-            fprintf(['Rd',num2str(AunitS_health_list(i,7)),'=', num2str(FB_damage),'\n']);
+            fprintf(['Rd',num2str(BunitS_health_list(i,7)),'=', num2str(FB_damage),'\n']);
 
             % 杀伤效果评估(命中判定)
             hit = randi([0, 100]);
